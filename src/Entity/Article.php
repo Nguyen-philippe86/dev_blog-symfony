@@ -63,6 +63,7 @@ class Article
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -131,7 +132,7 @@ class Article
     }
 
     /**
-     * @return Collection|Category[]
+     * @return Category[]|Collection
      */
     public function getCategory(): Collection
     {

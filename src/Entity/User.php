@@ -57,6 +57,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->articles = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->fullname = $this->firstname.' '.$this->lastname;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,7 +144,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Article[]
+     * @return Article[]|Collection
      */
     public function getArticles(): Collection
     {

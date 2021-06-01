@@ -4,6 +4,25 @@
 
 {% block body %}
     <div class="container">
-        <h1>Actualités</h1>
+        <h1 class="text-center m-5">Actualités</h1>
+            <div class="row mb-5">
+            {% for article in articles %}
+
+                <div class="card mb-3">
+                    <h5 class="card-header">{{article.name}}</h5>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <img src="/uploads/{{article.image}}" alt="{{article.name}}" class="" style="width: 18rem;margin:auto;">
+                        </div>
+                        <div class="row text-center m-3">
+                            <h6 class="card-subtitle mb-2 text-muted">{{article.subtitle}}</h6>
+                            <p>Écrit par : {{article.author}}, le {{article.createdAt | date('d/m/Y')}}</p>
+                            <a href="#" class="btn btn-dark">Lire l'article</a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
