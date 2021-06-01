@@ -1,0 +1,73 @@
+header{
+    width: 100%;
+    background-color: #5f27cd;
+    nav{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        h1{
+            color: white;
+        }
+        .mainMenu{
+            display: flex;
+            li{
+                padding: 0 5px;
+                list-style-type: none;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    &:hover{
+                        color: #ee5253;
+                    }
+                }
+            }
+        }
+        .openMenu{
+            font-size: 2rem;
+            margin: 20px;
+            display: none;
+            cursor: pointer;
+            }
+        .mainMenu .closeMenu, > i{
+            font-size: 2rem;
+            display: none;
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: 950px){
+        nav .mainMenu{
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(94, 39, 205, 0.9);
+            transition: top 1s ease-in-out;
+            display: none;
+            li > a{
+                font-size: 30px;
+            }
+        }
+        nav .mainMenu .closeMenu{
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+        }
+        nav .openMenu{
+            display: block;
+            color: #ffff;
+        }
+        nav .mainMenu li a:hover{
+            background: none;
+            color: #ee5253;
+        }
+    }
+}

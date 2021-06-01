@@ -1,0 +1,25 @@
+{
+  "name": "dev_blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "sass": "sass --watch ./public/assets/sass/main.scss:public/assets/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nguyen-philippe86/dev_blog-symfony.git"
+  },
+  "author": "Philippe Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nguyen-philippe86/dev_blog-symfony/issues"
+  },
+  "homepage": "https://github.com/Nguyen-philippe86/dev_blog-symfony#readme",
+  "dependencies": {
+    "sass": "^1.34.0"
+  }
+}
