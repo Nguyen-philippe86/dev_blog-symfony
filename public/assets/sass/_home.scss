@@ -1,0 +1,18 @@
+.card-header{
+    background: transparent;
+}
+.form-check{
+    background-color: #f4f8ff;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+.btn{
+    background-color: #5f27cd;
+    color: #fff;
+    &:hover {
+        color: #5f27cd;
+        background-color: #fff;
+        border-color: #5f27cd;
+        transition: ease-in-out 0.25s;
+    }
+}

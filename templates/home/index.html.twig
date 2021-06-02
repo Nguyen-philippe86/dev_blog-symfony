@@ -3,26 +3,37 @@
 {% block title %}Actualités{% endblock %}
 
 {% block body %}
+    <h1 class="text-center m-5">Actualités</h1>
+
     <div class="container">
-        <h1 class="text-center m-5">Actualités</h1>
-            <div class="row mb-5">
-            {% for article in articles %}
+        <div class="row">
 
-                <div class="card mb-3">
-                    <h5 class="card-header">{{article.name}}</h5>
-                    <div class="card-body">
-                        <div class="row text-center">
-                            <img src="/uploads/{{article.image}}" alt="{{article.name}}" class="" style="width: 18rem;margin:auto;">
+            <div class="col-md-3">
+                <h3 class="mb-2">Filtrer</h3>
+                {{form(form)}}    
+            </div>
+
+            <div class="col-md-9">
+                <h3 class="mb-2">Les sujets du moment</h3>
+                <div class="row product-container">
+                    {% for article in articles %}
+                        <div class="card mb-2 mx-1" style="width:49%;">
+                            <h5 class="card-header text-center">{{article.name}}</h5>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <img src="/uploads/{{article.image}}" alt="{{article.name}}" style="width:5rem;margin:auto;">
+                                </div>
+                                <div class="row text-center m-3">
+                                    <h5 class="card-subtitle mb-2 text-muted">{{article.subtitle}}</h5>
+                                    <p><small>Écrit par : {{article.author}}- le {{article.createdAt | date('d/m/Y')}}</small></p>
+                                    <a href="{{path('show', {'slug': article.slug})}}" class="btn">Lire l'article</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row text-center m-3">
-                            <h6 class="card-subtitle mb-2 text-muted">{{article.subtitle}}</h6>
-                            <p>Écrit par : {{article.author}}, le {{article.createdAt | date('d/m/Y')}}</p>
-                            <a href="#" class="btn btn-dark">Lire l'article</a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
+            </div>
 
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

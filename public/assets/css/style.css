@@ -24,7 +24,8 @@ header nav .mainMenu li a {
   color: white;
 }
 header nav .mainMenu li a:hover {
-  color: #ee5253;
+  text-decoration: underline;
+  transition: all 1.5s;
 }
 header nav .openMenu {
   font-size: 2rem;
@@ -48,7 +49,7 @@ header nav .mainMenu .closeMenu, header nav > i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(94, 39, 205, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     transition: top 1s ease-in-out;
     display: none;
   }
@@ -70,6 +71,27 @@ header nav .mainMenu .closeMenu, header nav > i {
     background: none;
     color: #ee5253;
   }
+}
+
+.card-header {
+  background: transparent;
+}
+
+.form-check {
+  background-color: #f4f8ff;
+  padding: 20px 65px;
+  margin-top: 7px;
+}
+
+.btn {
+  background-color: #5f27cd;
+  color: #fff;
+}
+.btn:hover {
+  color: #5f27cd;
+  background-color: #fff;
+  border-color: #5f27cd;
+  transition: ease-in-out 0.25s;
 }
 
 /*# sourceMappingURL=style.css.map */

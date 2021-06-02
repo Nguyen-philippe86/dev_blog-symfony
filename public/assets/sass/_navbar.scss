@@ -19,7 +19,8 @@ header{
                     text-decoration: none;
                     color: white;
                     &:hover{
-                        color: #ee5253;
+                        text-decoration: underline;
+                        transition: all 1.5s;
                     }
                 }
             }
@@ -47,7 +48,7 @@ header{
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: rgba(94, 39, 205, 0.9);
+            background-color: rgba(0, 0, 0, 0.9);
             transition: top 1s ease-in-out;
             display: none;
             li > a{
