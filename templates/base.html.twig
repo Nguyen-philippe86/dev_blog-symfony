@@ -21,16 +21,16 @@
             <div class="openMenu"><i class="fa fa-bars"></i></div>
             <ul class="mainMenu">
                     <li><a href="{{path('home')}}">Actualités</a></li>
-                            {# {% if not app.user %} #}
+                            {% if not app.user %}
                     <li><a href="{{path('register')}}">Inscription</a></li>
-                    <li><a href="#">Connexion</a></li>
-                            {# {% else %} #}
+                    <li><a href="{{path('app_login')}}">Connexion</a></li>
+                            {% else %}
                     <li><a href="#">Mon compte</a></li>
                             {# {% if is_granted('ROLE_ADMIN')%} #}
                     <li><a href="{{path('admin')}}">Interface admin</a></li>
                             {# {% endif %} #}
-                    <li><a href="#">Deconnexion</a></li>
-                            {# {% endif %} #}
+                    <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                            {% endif %}
                     <div class="closeMenu"><i class="fa fa-times"></i></div>
             </ul>
         </nav>

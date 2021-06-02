@@ -83,6 +83,10 @@ header nav .mainMenu .closeMenu, header nav > i {
   margin-top: 7px;
 }
 
+.btn-filter {
+  width: 100%;
+}
+
 .btn {
   background-color: #5f27cd;
   color: #fff;
