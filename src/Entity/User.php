@@ -52,9 +52,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $lastname;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="author")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function __toString()
@@ -193,6 +199,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getAuthor() === $this) {
+                $comment->setAuthor(null);
+            }
+        }
 
         return $this;
     }

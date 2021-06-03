@@ -4,20 +4,33 @@
 
 {% block body %}
     <h1 class="m-5">{{article.name}}</h1>
-        <div class="container">
-            <div class="row mb-5 justify-content-center">
-                <div class="card m-1">
-                    <div class="card-body d-flex">
-                        <div class="row text-center">
-                            <img src="/uploads/{{article.image}}" alt="{{article.name}}" class=""  style="width:100rem;">
-                        </div>
-                        <div class="row text-center m-3">
-                            <h5 class="card-subtitle mb-2 text-muted">{{article.subtitle}}</h5>
-                            <p><small>Écrit par : {{article.author}}- le {{article.createdAt | date('d/m/Y')}}</small></p>
-                            <p>{{article.content | raw}}</p>
-                        </div>
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="card m-1">
+                <div class="card-body d-flex">
+                    <div class="row text-center">
+                        <img src="/uploads/{{article.image}}" alt="{{article.name}}" class=""  style="width:100rem;">
+                    </div>
+                    <div class="row text-center m-3">
+                        <h5 class="card-subtitle mb-2 text-muted">{{article.subtitle}}</h5>
+                        <p><small>Écrit par : {{article.author}}- le {{article.createdAt | date('d/m/Y')}}</small></p>
+                        <p>{{article.content | raw}}</p>
                     </div>
                 </div>
+            </div>
         </div>
+        <div class="row">
+            {% for comment in article.comments %}
+                {{comment.author}}
+                {{comment.content}}
+            {% endfor %}
+        </div>
+        {% if app.user %}
+            {{ form_start(form) }}
+                <div class="containerRegistration">
+                    <input type="submit" class="btn-create" value="Enregistrer"/>
+                </div>
+            {{ form_end(form) }}
+        {% endif %}
     </div>
 {% endblock %}

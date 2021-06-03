@@ -37,6 +37,8 @@ class RegisterController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+
+            return $this->redirectToRoute('app_login');
             $notification = 'Votre inscription s\'est correctement déroulée, vous pouvez dès à présent vous connecter';
         }
 
