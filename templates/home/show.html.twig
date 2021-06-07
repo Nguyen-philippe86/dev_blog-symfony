@@ -19,18 +19,30 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        {% if app.user %}
+            <div class="row mb-5">
+                {{ form_start(form) }}
+                    {{form_row(form.author)}}
+                    {{form_row(form.content)}}
+                    <input type="submit" class="btn-create mt-md-3" value="Enregistrer"/>
+                {{ form_end(form) }}
+            </div>
+        {% endif %}
+        <div class="row p-3 mb-5">
+            <h3>{{article.comments|length}} Commentaires</h3>
             {% for comment in article.comments %}
-                {{comment.author}}
-                {{comment.content}}
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="alert alert-dark">
+                            <p><strong>{{comment.author}}, </strong>le {{comment.createdAt | date('d/m/Y')}}</p>
+                        </div>
+                        <div class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <p class="px-5">{{comment.content}}</p>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-        {% if app.user %}
-            {{ form_start(form) }}
-                <div class="containerRegistration">
-                    <input type="submit" class="btn-create" value="Enregistrer"/>
-                </div>
-            {{ form_end(form) }}
-        {% endif %}
     </div>
 {% endblock %}
